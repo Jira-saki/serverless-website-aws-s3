@@ -22,3 +22,7 @@ jobs:
       - name: Deploy to S3
         run: |
           aws s3 sync . s3://jira-static-site-proj --delete
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id EZB6KSFVCUJFA --paths "/*"
