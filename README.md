@@ -1,4 +1,5 @@
-# Serverless Website Deployment Pipeline
+
+# Serverless Website Deployment 
 This project demonstrates how to build a fully automated, scalable, and secure website deployment pipeline using a cloud-native, DevOps approach. 
 The final product is a production-ready CI/CD workflow that automatically deploys a static website with every code change.
 
@@ -31,27 +32,39 @@ Manual deployments are slow, inconsistent, and prone to human error.
 The project follows a simple, yet robust, cloud-native architecture.
 
  1. **Code Commit** : A developer commits and pushes code to a GitHub repository, which contains the *deploy.yml*  workflow file.
- 2. **Pipeline Trigger:** The push action automatically triggers a **GitHub Actions** workflow.
+ ```
+#Clone the repository
+git clone https://github.com/your-github/serverless-website-aws-s3.git
+
+#Navigate into the project directory
+cd serverless-website-aws-s3
+
+#Commit and push changes
+git add .
+git commit -m "My first change"
+git push origin main
+```
+
+ 2 **Pipeline Trigger:** The push action automatically triggers a **GitHub Actions** workflow.
+
+```
+# Command to sync the files to S3 
+aws s3 sync . s3://your-bucket-name --delete 
+
+# Command to invalidate the CloudFront cache 
+aws cloudfront create-invalidation --distribution-id your-distribution-id --paths "/*"
+
+```
+
  3. **Authentication:** The workflow uses secure **AWS IAM credentials** (stored as GitHub Secrets) to authenticate with AWS.
  4. **Content Deployment:** An AWS CLI command synchronizes the website's files to an **Amazon S3** bucket.
  5. **Cache Invalidation:** A second AWS CLI command invalidates the cache on the **Amazon CloudFront** distribution, ensuring the latest content is served.
  6. **Global Delivery:** The **CloudFront CDN** serves the updated website to global users from its edge locations.
 
-## Key Learnings
-
-Throughout this project, I gained hands-on experience and a deeper understanding of several core concepts:
-
-**Infrastructure as Code (IaC) principles**: 
-
-While I performed the initial setup manually, I learned the importance of repeatable, documented infrastructure and how services like S3 and CloudFront interconnect.
-
-This is a great starting point. The content is all there, but it can be organized for better readability. The goal is to separate the high-level concepts from the specific technical details.
-
-Here is a refined version you can use, organized into clear, professional sections.
 
 ---
 
-### **Key Learnings**
+### **Key Learnings** :sparkles:
 
 I gained a deeper understanding of fundamental DevOps principles and practiced them through this project.
 
@@ -65,5 +78,10 @@ I gained a deeper understanding of fundamental DevOps principles and practiced t
 
 The project’s architecture relies on several AWS services, each configured to play a specific role.
 
-* **Amazon S3:** The project uses an S3 bucket with **static website hosting** enabled to serve as the highly available origin for the website's files. The bucket policy was configured to allow public read access, while public access was managed and restricted at the top level to prevent unauthorized access.
-* **Amazon CloudFront (CDN):** CloudFront acts as the content delivery network (CDN), caching the website's content in data centers worldwide to improve load times for users. To ensure **security**, CloudFront was configured to use an **Origin Access Identity (OAI)**, which restricts direct public access to the S3 bucket. A crucial part of the pipeline is the automated **cache invalidation** step, which tells CloudFront to clear its cached content after a new version is deployed.
+* **Amazon S3:** 
+The project uses an S3 bucket with **static website hosting** enabled to serve as the highly available origin for the website's files. The bucket policy was configured to allow public read access, while public access was managed and restricted at the top level to prevent unauthorized access.
+* **Amazon CloudFront (CDN):** 
+CloudFront acts as the content delivery network (CDN), caching the website's content in data centers worldwide to improve load times for users. 
+To ensure **security**, CloudFront was configured to use an **Origin Access Identity (OAI)**, which restricts direct public access to the S3 bucket. 
+A crucial part of the pipeline is the automated **cache invalidation** step, which tells CloudFront to clear its cached content after a new version is deployed.
+
