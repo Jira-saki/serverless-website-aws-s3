@@ -1,4 +1,4 @@
-**Serverless Website Deployment Pipeline**
+# Serverless Website Deployment Pipeline
 This project demonstrates how to build a fully automated, scalable, and secure website deployment pipeline using a cloud-native, DevOps approach. 
 The final product is a production-ready CI/CD workflow that automatically deploys a static website with every code change.
 
@@ -42,12 +42,16 @@ The project follows a simple, yet robust, cloud-native architecture.
 Throughout this project, I gained hands-on experience and a deeper understanding of several core concepts:
 
 **Infrastructure as Code (IaC) principles**: 
+
 While I performed the initial setup manually, I learned the importance of repeatable, documented infrastructure and how services like S3 and CloudFront interconnect.
 
-**CI/CD Pipeline Design**: 
+## CI/CD Pipeline Design: 
+
 I learned how to build a complete, multi-step pipeline that includes source control, authentication, deployment, and crucial post-deployment steps like cache invalidation.
 
-**DevSecOps**: I practiced the "shift-left" security model by using IAM for least-privilege access and GitHub Secrets to securely manage credentials, avoiding hard-coding them in the workflow file.
+**DevSecOps**: 
+I practiced the "shift-left" security model by using IAM for least-privilege access and GitHub Secrets to securely manage credentials, avoiding hard-coding them in the workflow file.
 
-**Cloud-Native Services**: I gained practical experience with AWS's core services, understanding how they are used together to create a scalable and highly available application.
+**Cloud-Native Services**: 
+I gained practical experience with AWS's core services, understanding how they are used together to create a scalable and highly available application.
 
