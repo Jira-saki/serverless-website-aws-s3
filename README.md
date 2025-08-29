@@ -26,6 +26,7 @@ Manual deployments are slow, inconsistent, and prone to human error.
 **Git**: Used for version control and to trigger the automated workflow.
 
 ## Architecture
+![Architecture Diagram](assets/cd-diagram.png)
 
 The project follows a simple, yet robust, cloud-native architecture.
 
