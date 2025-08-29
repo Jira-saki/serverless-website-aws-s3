@@ -45,13 +45,25 @@ Throughout this project, I gained hands-on experience and a deeper understanding
 
 While I performed the initial setup manually, I learned the importance of repeatable, documented infrastructure and how services like S3 and CloudFront interconnect.
 
-## CI/CD Pipeline Design: 
+This is a great starting point. The content is all there, but it can be organized for better readability. The goal is to separate the high-level concepts from the specific technical details.
 
-I learned how to build a complete, multi-step pipeline that includes source control, authentication, deployment, and crucial post-deployment steps like cache invalidation.
+Here is a refined version you can use, organized into clear, professional sections.
 
-**DevSecOps**: 
-I practiced the "shift-left" security model by using IAM for least-privilege access and GitHub Secrets to securely manage credentials, avoiding hard-coding them in the workflow file.
+---
 
-**Cloud-Native Services**: 
-I gained practical experience with AWS's core services, understanding how they are used together to create a scalable and highly available application.
+### **Key Learnings**
 
+I gained a deeper understanding of fundamental DevOps principles and practiced them through this project.
+
+* **CI/CD Pipeline Design:** I learned how to build a complete, multi-step pipeline that includes source control, authentication, deployment, and crucial post-deployment steps like **cache invalidation**.
+* **DevSecOps:** I practiced the **"shift-left" security model** by using **IAM** for least-privilege access and **GitHub Secrets** to securely manage credentials, which is a modern alternative to hard-coding sensitive information.
+* **Cloud-Native Services:** I gained practical experience with a suite of AWS's core services and learned how they are configured to work together to create a scalable and highly available application.
+
+---
+
+### **AWS Services Configuration**
+
+The project’s architecture relies on several AWS services, each configured to play a specific role.
+
+* **Amazon S3:** The project uses an S3 bucket with **static website hosting** enabled to serve as the highly available origin for the website's files. The bucket policy was configured to allow public read access, while public access was managed and restricted at the top level to prevent unauthorized access.
+* **Amazon CloudFront (CDN):** CloudFront acts as the content delivery network (CDN), caching the website's content in data centers worldwide to improve load times for users. To ensure **security**, CloudFront was configured to use an **Origin Access Identity (OAI)**, which restricts direct public access to the S3 bucket. A crucial part of the pipeline is the automated **cache invalidation** step, which tells CloudFront to clear its cached content after a new version is deployed.
