@@ -34,25 +34,25 @@ The project follows a simple, yet robust, cloud-native architecture.
  1. **Code Commit** : A developer commits and pushes code to a GitHub repository, which contains the *deploy.yml*  workflow file.
  ```
 #Clone the repository
-git clone https://github.com/your-github/serverless-website-aws-s3.git
+$ git clone https://github.com/your-github/serverless-website-aws-s3.git
 
 #Navigate into the project directory
-cd serverless-website-aws-s3
+$ cd serverless-website-aws-s3
 
 #Commit and push changes
-git add .
-git commit -m "My first change"
-git push origin main
+$ git add .
+$ git commit -m "My first change"
+$ git push origin main
 ```
 
  2 **Pipeline Trigger:** The push action automatically triggers a **GitHub Actions** workflow.
 
 ```
 # Command to sync the files to S3 
-aws s3 sync . s3://your-bucket-name --delete 
+$ aws s3 sync . s3://your-bucket-name --delete 
 
 # Command to invalidate the CloudFront cache 
-aws cloudfront create-invalidation --distribution-id your-distribution-id --paths "/*"
+$ aws cloudfront create-invalidation --distribution-id your-distribution-id --paths "/*"
 
 ```
 
