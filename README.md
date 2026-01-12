@@ -1,3 +1,6 @@
+# Built a fully serverless static website using Amazon S3 for hosting, with proper IAM policies, bucket configuration, and CloudFront integration for performance and global delivery.
+
+### Key Skills: AWS S3, IAM, CloudFront, Static Web Hosting
 
 # Serverless Website Deployment 
 This project demonstrates how to build a fully automated, scalable, and secure website deployment pipeline using a cloud-native, DevOps approach. 
