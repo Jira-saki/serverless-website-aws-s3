@@ -88,3 +88,13 @@ CloudFront acts as the content delivery network (CDN), caching the website's con
 To ensure **security**, CloudFront was configured to use an **Origin Access Identity (OAI)**, which restricts direct public access to the S3 bucket. 
 A crucial part of the pipeline is the automated **cache invalidation** step, which tells CloudFront to clear its cached content after a new version is deployed.
 
+## AI Assistance
+
+This project was developed with the support of AI tools used as learning and productivity assistants, including:
+- ChatGPT – architecture discussion, troubleshooting guidance, documentation refinement
+- Gemini – incident investigation guidance and research support
+- Amazon Q – IDE assistance, code navigation, AWS infra research support
+- Kiro – learning support and brainstorming
+
+All design decisions, implementation, testing, and validation were performed by me. AI tools were used to accelerate learning, problem-solving, and documentation.
+
