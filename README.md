@@ -91,10 +91,10 @@ A crucial part of the pipeline is the automated **cache invalidation** step, whi
 ## AI Assistance
 
 This project was developed with the support of AI tools used as learning and productivity assistants, including:
-- ChatGPT – architecture discussion, troubleshooting guidance, documentation refinement
-- Gemini – incident investigation guidance and research support
-- Amazon Q – IDE assistance, code navigation, AWS infra research support
-- Kiro – learning support and brainstorming
+- **ChatGPT** – architecture discussion, troubleshooting guidance, documentation refinement  
+- **Gemini** – incident investigation guidance and research support  
+- **Amazon Q** – IDE assistance, code navigation, AWS infrastructure research support  
+- **Kiro** – learning support and brainstorming  
 
 All design decisions, implementation, testing, and validation were performed by me. AI tools were used to accelerate learning, problem-solving, and documentation.
 
